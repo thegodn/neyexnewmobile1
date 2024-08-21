@@ -10,7 +10,7 @@
             padding: 0;
             height: 850px;
             font-family: 'Arial', sans-serif;
-            background-color: white;
+            background-color: #f0f0f0;
             color: #333;
             overflow: hidden;
         }
@@ -20,12 +20,15 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            perspective: 1000px;
         }
         .header {
             text-align: center;
             padding: 20px;
             width: 100%;
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
+            transform: translateZ(50px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .header h1 {
             margin: 0;
@@ -52,7 +55,7 @@
             transition: all 0.5s ease-in-out;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 1px 8px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -68,24 +71,24 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0));
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
             border-radius: 20px;
             pointer-events: none;
         }
         .carousel-item.active {
             opacity: 1;
             z-index: 1;
-            transform: translate(-50%, -50%) rotateY(0deg);
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(50px);
         }
         .carousel-item.prev, .carousel-item.next {
             opacity: 0.7;
             z-index: 0;
         }
         .carousel-item.prev {
-            transform: translate(-150%, -50%) scale(0.8) rotateY(20deg);
+            transform: translate(-150%, -50%) scale(0.8) rotateY(20deg) translateZ(-50px);
         }
         .carousel-item.next {
-            transform: translate(50%, -50%) scale(0.8) rotateY(-20deg);
+            transform: translate(50%, -50%) scale(0.8) rotateY(-20deg) translateZ(-50px);
         }
         .product-image {
             width: 100%;
@@ -93,6 +96,7 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateZ(30px);
         }
         .product-info {
             text-align: center;
@@ -100,31 +104,27 @@
             flex-direction: column;
             justify-content: space-between;
             height: calc(100% - 350px);
+            transform: translateZ(20px);
         }
         .product-name {
-            font-size: 1.2em;
-            margin: 10px 0;
+            font-size: 1.4em;
+            margin: 15px 0;
             color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         .product-price {
-            font-size: 1.2em;
+            font-size: 1.6em;
             color: #e44d26;
-            margin-bottom: 10px;
-        }
-        .product-description {
-            font-size: 0.9em;
-            line-height: 1.4;
-            color: #666;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         .product-link {
             display: inline-block;
             margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
             color: white;
             text-decoration: none;
             border-radius: 25px;
@@ -136,10 +136,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateZ(10px);
         }
         .product-link:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: translateY(-2px) translateZ(15px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         .nav-button {
@@ -158,6 +159,7 @@
         }
         .nav-button:hover {
             background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.05);
         }
         .nav-button.prev {
             left: 20px;
@@ -170,6 +172,8 @@
             padding: 20px;
             width: 100%;
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
+            transform: translateZ(50px);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         }
         .campaign-text {
             font-size: 1.2em;
@@ -179,9 +183,9 @@
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1) translateZ(0); }
+            50% { transform: scale(1.05) translateZ(10px); }
+            100% { transform: scale(1) translateZ(0); }
         }
     </style>
 </head>
@@ -196,7 +200,6 @@
                 <div class="product-info">
                     <h2 class="product-name">BAG BEAR T-Shirt</h2>
                     <p class="product-price">₺300.00</p>
-                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
                     <a href="https://neyex.co/os086-bag-bear-t-shirt" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
@@ -205,7 +208,6 @@
                 <div class="product-info">
                     <h2 class="product-name">MARİN Nevresim Takımı</h2>
                     <p class="product-price">₺950.00</p>
-                    <p class="product-description">Pembe çiçek desenli nevresim takımı.</p>
                     <a href="https://neyex.co/etn004-marin-nevresim-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
@@ -214,7 +216,6 @@
                 <div class="product-info">
                     <h2 class="product-name">6'lı Havlu Seti</h2>
                     <p class="product-price">₺390.00</p>
-                    <p class="product-description">Hafifliği ve yumuşaklığı sizi mutlu edecektir.</p>
                     <a href="https://neyex.co/h001-ela-6-li-yuz-havlu-seti" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
@@ -223,7 +224,6 @@
                 <div class="product-info">
                     <h2 class="product-name">2'li Bornoz&Havlu Takımı</h2>
                     <p class="product-price">₺849.00</p>
-                    <p class="product-description">Antrasit ve Leylak Rengi</p>
                     <a href="https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
@@ -232,7 +232,6 @@
                 <div class="product-info">
                     <h2 class="product-name">Tom ve Jerry Kupa</h2>
                     <p class="product-price">₺200</p>
-                    <p class="product-description">Sevdikleriniz için özel tasarlanmış kupalar</p>
                     <a href="https://neyex.co/tom-and-jerry--mug" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
