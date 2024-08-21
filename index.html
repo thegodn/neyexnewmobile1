@@ -8,7 +8,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 850px;
+            height: 100vh;
             font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             color: #333;
@@ -29,6 +29,7 @@
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
             transform: translateZ(50px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
         }
         .header h1 {
             margin: 0;
@@ -41,17 +42,18 @@
         .carousel {
             position: relative;
             width: 100%;
-            height: 650px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             perspective: 1000px;
             transform-style: preserve-3d;
+            overflow: hidden;
         }
         .carousel-item {
             position: absolute;
             width: 300px;
             height: 500px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             transition: all 0.5s ease-in-out;
             background: white;
             border-radius: 20px;
@@ -77,18 +79,18 @@
         }
         .carousel-item.active {
             opacity: 1;
-            z-index: 1;
-            transform: translate(-50%, -50%) rotateY(0deg) translateZ(50px);
+            z-index: 2;
+            transform: translateZ(50px);
         }
         .carousel-item.prev, .carousel-item.next {
             opacity: 0.7;
-            z-index: 0;
+            z-index: 1;
         }
         .carousel-item.prev {
-            transform: translate(-150%, -50%) scale(0.8) rotateY(20deg) translateZ(-50px);
+            transform: translateX(-50%) scale(0.8) translateZ(-50px);
         }
         .carousel-item.next {
-            transform: translate(50%, -50%) scale(0.8) rotateY(-20deg) translateZ(-50px);
+            transform: translateX(50%) scale(0.8) translateZ(-50px);
         }
         .product-image {
             width: 100%;
@@ -155,7 +157,7 @@
             cursor: pointer;
             border-radius: 30px;
             transition: all 0.3s ease;
-            z-index: 2;
+            z-index: 10;
         }
         .nav-button:hover {
             background: rgba(0, 0, 0, 0.7);
@@ -174,6 +176,7 @@
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
             transform: translateZ(50px);
             box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
         }
         .campaign-text {
             font-size: 1.2em;
@@ -222,7 +225,7 @@
             <div class="carousel-item">
                 <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/e194a397-3aa7-4ecc-925f-eeb95c18142f/image_1080.webp" alt="2'li Bornoz&Havlu Takımı" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">2'li Bornoz&Havlu Takımı</h2>
+                    <h2 class="product-name">2'li Bornoz Takımı</h2>
                     <p class="product-price">₺849.00</p>
                     <a href="https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
