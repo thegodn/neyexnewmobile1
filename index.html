@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced 3D Product Carousel</title>
+    <title>Refined 5-Product Carousel</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 850px;
             font-family: 'Arial', sans-serif;
-            background-color: #2c2c2c; /* Anthracite color */
-            color: white;
+            background-color: white;
+            color: #333;
             overflow: hidden;
         }
         .container {
@@ -20,6 +20,20 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         .carousel {
             position: relative;
@@ -36,12 +50,9 @@
             top: 50%;
             transform: translate(-50%, -50%);
             transition: all 0.5s ease-in-out;
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3),
-                        0 5px 15px rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -57,7 +68,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            background: linear-gradient(45deg, rgba(0,0,0,0.05), rgba(0,0,0,0));
             border-radius: 20px;
             pointer-events: none;
         }
@@ -81,7 +92,7 @@
             height: 350px;
             object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .product-info {
             text-align: center;
@@ -89,21 +100,36 @@
         .product-name {
             font-size: 1.5em;
             margin: 10px 0;
+            color: #333;
         }
         .product-price {
             font-size: 1.2em;
-            color: #ffd700;
+            color: #e44d26;
             margin-bottom: 10px;
         }
         .product-description {
             font-size: 0.9em;
             line-height: 1.4;
+            color: #666;
+        }
+        .product-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .product-link:hover {
+            background-color: #45a049;
         }
         .nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.5);
             border: none;
             color: white;
             padding: 10px 20px;
@@ -114,7 +140,7 @@
             z-index: 2;
         }
         .nav-button:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.7);
         }
         .nav-button.prev {
             left: 20px;
@@ -122,17 +148,17 @@
         .nav-button.next {
             right: 20px;
         }
-        .header, .footer {
+        .footer {
             text-align: center;
             padding: 20px;
             width: 100%;
-            background: rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
         }
         .campaign-text {
             font-size: 1.2em;
             font-weight: bold;
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            color: #e44d26;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             animation: pulse 2s infinite;
         }
         @keyframes pulse {
@@ -145,38 +171,59 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>EN SEVDİKLERİNİZ</h1>
+            <h1>Luxury Home Collection</h1>
         </div>
         <div class="carousel">
             <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Bedding Set" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">XX Nevresim Takımları</h2>
-                    <p class="product-price">₺129.99</p>
-                    <p class="product-description">Ürün açıklaması</p>
+                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
+                    <p class="product-price">₺300.00</p>
+                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
+                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <div class="carousel-item next">
-                <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elegant Curtains" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/d46526e7-b5d7-4570-bc25-050275e2a02b/image_1080.webp" alt="Elegant Curtains" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">xx Tişört</h2>
-                    <p class="product-price">₺89.99</p>
-                    <p class="product-description">Ürün açıklaması</p>
+                    <h2 class="product-name">MARİN Nevresim Takımı</h2>
+                    <p class="product-price">₺950.00</p>
+                    <p class="product-description">Pembe çiçek desenli nevresim takımı.</p>
+                    <a href="https://neyex.co/etn004-marin-nevresim-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1569328212538-26b9d85d3de7?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plush Bath Towels" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">xx Özel Tasarım Kupa</h2>
-                    <p class="product-price">₺59.99</p>
-                    <p class="product-description">Ürün açıklaması</p>
+                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
+                    <p class="product-price">₺300.00</p>
+                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
+                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
+                    <p class="product-price">₺300.00</p>
+                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
+                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
+                <div class="product-info">
+                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
+                    <p class="product-price">₺300.00</p>
+                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
+                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <button class="nav-button prev">&lt;</button>
             <button class="nav-button next">&gt;</button>
         </div>
         <div class="footer">
-            <p class="campaign-text">🌟 Ağustos ayı boyunca ücretsiz kargo fırsatımızdan yararlanabilirsiniz. 🌟</p>
+            <p class="campaign-text">🌟 EXCLUSIVE OFFER: Free shipping on orders over $100 | Use code LUXHOME for 15% off! 🌟</p>
         </div>
     </div>
     <script>
