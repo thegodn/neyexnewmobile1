@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refined 5-Product Carousel</title>
+    <title>En Sevdikleriniz</title>
     <style>
         body, html {
             margin: 0;
@@ -96,9 +96,13 @@
         }
         .product-info {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 350px);
         }
         .product-name {
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin: 10px 0;
             color: #333;
         }
@@ -111,6 +115,10 @@
             font-size: 0.9em;
             line-height: 1.4;
             color: #666;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .product-link {
             display: inline-block;
@@ -119,11 +127,20 @@
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .product-link:hover {
             background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         .nav-button {
             position: absolute;
@@ -171,7 +188,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Luxury Home Collection</h1>
+            <h1>En Sevdikleriniz</h1>
         </div>
         <div class="carousel">
             <div class="carousel-item active">
@@ -180,11 +197,11 @@
                     <h2 class="product-name">BAG BEAR T-Shirt</h2>
                     <p class="product-price">₺300.00</p>
                     <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
-                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                    <a href="https://neyex.co/os086-bag-bear-t-shirt" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <div class="carousel-item next">
-                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/d46526e7-b5d7-4570-bc25-050275e2a02b/image_1080.webp" alt="Elegant Curtains" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/d46526e7-b5d7-4570-bc25-050275e2a02b/image_1080.webp" alt="MARİN Nevresim Takımı" class="product-image">
                 <div class="product-info">
                     <h2 class="product-name">MARİN Nevresim Takımı</h2>
                     <p class="product-price">₺950.00</p>
@@ -193,37 +210,37 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/a7b10f19-96c9-4f33-947b-861507376075/image_1080.webp" alt="6'lı Havlu Seti" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
-                    <p class="product-price">₺300.00</p>
-                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
-                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                    <h2 class="product-name">6'lı Havlu Seti</h2>
+                    <p class="product-price">₺390.00</p>
+                    <p class="product-description">Hafifliği ve yumuşaklığı sizi mutlu edecektir.</p>
+                    <a href="https://neyex.co/h001-ela-6-li-yuz-havlu-seti" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/e194a397-3aa7-4ecc-925f-eeb95c18142f/image_1080.webp" alt="2'li Bornoz&Havlu Takımı" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
-                    <p class="product-price">₺300.00</p>
-                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
-                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                    <h2 class="product-name">2'li Bornoz&Havlu Takımı</h2>
+                    <p class="product-price">₺849.00</p>
+                    <p class="product-description">Antrasit ve Leylak Rengi</p>
+                    <a href="https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/82370a7a-7599-4f1e-9584-b9d3b811d58c/image_1080.webp" alt="BAG BEAR T-Shirt" class="product-image">
+                <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/4193ed2f-d194-4676-9d51-3f680546c6f7/image_1080.webp" alt="Tom ve Jerry Kupa" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">BAG BEAR T-Shirt</h2>
-                    <p class="product-price">₺300.00</p>
-                    <p class="product-description">Sevimli Ayı, Oversize T-Shirt</p>
-                    <a href="product1.html" class="https://neyex.co/os086-bag-bear-t-shirt" target="_parent">Ürünü Gör</a>
+                    <h2 class="product-name">Tom ve Jerry Kupa</h2>
+                    <p class="product-price">₺200</p>
+                    <p class="product-description">Sevdikleriniz için özel tasarlanmış kupalar</p>
+                    <a href="https://neyex.co/tom-and-jerry--mug" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
             <button class="nav-button prev">&lt;</button>
             <button class="nav-button next">&gt;</button>
         </div>
         <div class="footer">
-            <p class="campaign-text">🌟 EXCLUSIVE OFFER: Free shipping on orders over $100 | Use code LUXHOME for 15% off! 🌟</p>
+            <p class="campaign-text">Ağustos ayı boyunca ücretsiz kargo kampanyamızdan yararlanabilirsiniz!</p>
         </div>
     </div>
     <script>
