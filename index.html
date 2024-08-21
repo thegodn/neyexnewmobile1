@@ -8,187 +8,121 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100%;
             font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             color: #333;
             overflow: hidden;
         }
         .container {
-            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            perspective: 1000px;
+            height: 100%;
         }
         .header {
             text-align: center;
-            padding: 20px;
-            width: 100%;
+            padding: 10px;
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
-            transform: translateZ(50px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 10;
         }
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.5em;
             color: #333;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
         }
         .carousel {
             position: relative;
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-            transform-style: preserve-3d;
+            flex: 1;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .carousel-item {
             position: absolute;
-            width: 300px;
-            height: 500px;
-            transition: all 0.5s ease-in-out;
+            width: 80%;
+            max-width: 300px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2), 0 1px 8px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             opacity: 0;
-            transform-style: preserve-3d;
-        }
-        .carousel-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
-            border-radius: 20px;
-            pointer-events: none;
+            transform: scale(0.8);
         }
         .carousel-item.active {
             opacity: 1;
+            transform: scale(1);
             z-index: 2;
-            transform: translateZ(50px);
         }
         .carousel-item.prev, .carousel-item.next {
-            opacity: 0.7;
+            opacity: 0.5;
             z-index: 1;
         }
-        .carousel-item.prev {
-            transform: translateX(-50%) scale(0.8) translateZ(-50px);
-        }
-        .carousel-item.next {
-            transform: translateX(50%) scale(0.8) translateZ(-50px);
-        }
+        .carousel-item.prev { transform: translateX(-60%) scale(0.8); }
+        .carousel-item.next { transform: translateX(60%) scale(0.8); }
         .product-image {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: translateZ(30px);
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         .product-info {
+            padding: 15px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: calc(100% - 350px);
-            transform: translateZ(20px);
         }
         .product-name {
-            font-size: 1.4em;
-            margin: 15px 0;
-            color: #333;
+            font-size: 1.2em;
+            margin: 5px 0;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         .product-price {
-            font-size: 1.6em;
+            font-size: 1.3em;
             color: #e44d26;
-            margin-bottom: 15px;
+            margin: 5px 0 15px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         .product-link {
             display: inline-block;
-            margin-top: 10px;
-            padding: 12px 25px;
-            background: linear-gradient(45deg, #4CAF50, #45a049);
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-            cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transform: translateZ(10px);
+            transition: background-color 0.3s;
         }
         .product-link:hover {
-            background: linear-gradient(45deg, #45a049, #4CAF50);
-            transform: translateY(-2px) translateZ(15px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            background-color: #45a049;
         }
         .nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.5);
-            border: none;
             color: white;
-            padding: 10px 20px;
+            border: none;
+            padding: 10px 15px;
             font-size: 18px;
             cursor: pointer;
-            border-radius: 30px;
-            transition: all 0.3s ease;
             z-index: 10;
         }
-        .nav-button:hover {
-            background: rgba(0, 0, 0, 0.7);
-            transform: translateY(-50%) scale(1.05);
-        }
-        .nav-button.prev {
-            left: 20px;
-        }
-        .nav-button.next {
-            right: 20px;
-        }
+        .nav-button.prev { left: 10px; }
+        .nav-button.next { right: 10px; }
         .footer {
             text-align: center;
-            padding: 20px;
-            width: 100%;
+            padding: 10px;
             background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
-            transform: translateZ(50px);
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
             z-index: 10;
         }
         .campaign-text {
-            font-size: 1.2em;
+            font-size: 0.9em;
             font-weight: bold;
             color: #e44d26;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1) translateZ(0); }
-            50% { transform: scale(1.05) translateZ(10px); }
-            100% { transform: scale(1) translateZ(0); }
         }
     </style>
 </head>
@@ -225,7 +159,7 @@
             <div class="carousel-item">
                 <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/e194a397-3aa7-4ecc-925f-eeb95c18142f/image_1080.webp" alt="2'li Bornoz&Havlu Takımı" class="product-image">
                 <div class="product-info">
-                    <h2 class="product-name">2'li Bornoz Takımı</h2>
+                    <h2 class="product-name">2'li Bornoz&Havlu Takımı</h2>
                     <p class="product-price">₺849.00</p>
                     <a href="https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
@@ -252,8 +186,6 @@
         const nextBtn = carousel.querySelector('.nav-button.next');
 
         let currentIndex = 0;
-        let startX, moveX;
-        let isMoving = false;
 
         function updateCarousel() {
             items.forEach((item, index) => {
@@ -280,27 +212,21 @@
         prevBtn.addEventListener('click', () => moveCarousel('prev'));
         nextBtn.addEventListener('click', () => moveCarousel('next'));
 
+        let startX, moveX;
         carousel.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            isMoving = true;
         });
 
         carousel.addEventListener('touchmove', (e) => {
-            if (!isMoving) return;
             moveX = e.touches[0].clientX;
-            const diff = moveX - startX;
-            if (Math.abs(diff) > 50) {
-                isMoving = false;
-                if (diff > 0) {
-                    moveCarousel('prev');
-                } else {
-                    moveCarousel('next');
-                }
-            }
         });
 
         carousel.addEventListener('touchend', () => {
-            isMoving = false;
+            if (startX - moveX > 50) {
+                moveCarousel('next');
+            } else if (moveX - startX > 50) {
+                moveCarousel('prev');
+            }
         });
 
         updateCarousel();
