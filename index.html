@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En Sevdikleriniz</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
             color: #333;
         }
         .container {
@@ -20,14 +21,15 @@
         }
         .header {
             text-align: center;
-            padding: 15px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .header h1 {
             margin: 0;
-            font-size: 1.8em;
+            font-size: 2em;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
@@ -39,97 +41,110 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 20px 0;
         }
         .carousel-item {
             position: absolute;
-            width: 85%;
-            max-width: 350px;
+            width: 90%;
+            max-width: 380px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 1px 8px rgba(0,0,0,0.2);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 0;
-            transform: scale(0.8);
+            transform: scale(0.8) translateX(100%);
         }
         .carousel-item.active {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) translateX(0);
             z-index: 2;
         }
-        .carousel-item.prev, .carousel-item.next {
-            opacity: 0.5;
+        .carousel-item.prev {
+            opacity: 0.7;
+            transform: scale(0.9) translateX(-80%);
             z-index: 1;
         }
-        .carousel-item.prev { transform: translateX(-70%) scale(0.9); }
-        .carousel-item.next { transform: translateX(70%) scale(0.9); }
+        .carousel-item.next {
+            opacity: 0.7;
+            transform: scale(0.9) translateX(80%);
+            z-index: 1;
+        }
         .product-image {
             width: 100%;
             height: auto;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            object-fit: cover;
         }
         .product-info {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
         }
         .product-name {
-            font-size: 1.4em;
-            margin: 0 0 10px;
+            font-size: 1.5em;
+            margin: 0 0 15px;
             color: #2c3e50;
-            font-weight: bold;
+            font-weight: 600;
         }
         .product-price {
-            font-size: 1.6em;
+            font-size: 1.8em;
             color: #e74c3c;
-            margin: 10px 0 20px;
-            font-weight: bold;
+            margin: 15px 0 25px;
+            font-weight: 600;
         }
         .product-link {
             display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 600;
             text-transform: uppercase;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
         }
         .product-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.2);
         }
         .nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .nav-button:hover {
-            background: rgba(0, 0, 0, 0.7);
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         .nav-button.prev { left: 10px; }
         .nav-button.next { right: 10px; }
         .footer {
             text-align: center;
-            padding: 15px;
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
         }
         .campaign-text {
-            font-size: 1em;
-            font-weight: bold;
+            font-size: 1.1em;
+            font-weight: 400;
             margin: 0;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
@@ -146,7 +161,7 @@
                 <div class="product-info">
                     <h2 class="product-name">BAG BEAR T-Shirt</h2>
                     <p class="product-price">₺300.00</p>
-                    <a href="https://neyex.co/os086-bag-bear-t-shirt" class="product-link" target="_parent">Ürünü Gör</a>
+                    <button onclick="window.top.location.href='https://neyex.co/os086-bag-bear-t-shirt'" class="product-link">Ürünü Gör</button>
                 </div>
             </div>
             <div class="carousel-item next">
@@ -154,7 +169,7 @@
                 <div class="product-info">
                     <h2 class="product-name">MARİN Nevresim Takımı</h2>
                     <p class="product-price">₺950.00</p>
-                    <a href="https://neyex.co/etn004-marin-nevresim-takimi" class="product-link" target="_parent">Ürünü Gör</a>
+                    <button onclick="window.top.location.href='https://neyex.co/etn004-marin-nevresim-takimi'" class="product-link">Ürünü Gör</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -162,7 +177,7 @@
                 <div class="product-info">
                     <h2 class="product-name">6'lı Havlu Seti</h2>
                     <p class="product-price">₺390.00</p>
-                    <a href="https://neyex.co/h001-ela-6-li-yuz-havlu-seti" class="product-link" target="_parent">Ürünü Gör</a>
+                    <button onclick="window.top.location.href='https://neyex.co/h001-ela-6-li-yuz-havlu-seti'" class="product-link">Ürünü Gör</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -170,7 +185,7 @@
                 <div class="product-info">
                     <h2 class="product-name">2'li Bornoz&Havlu Takımı</h2>
                     <p class="product-price">₺849.00</p>
-                    <a href="https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi" class="product-link" target="_parent">Ürünü Gör</a>
+                    <button onclick="window.top.location.href='https://neyex.co/iklbrnz001-antrasit-leylak-2-li-bornoz-takimi'" class="product-link">Ürünü Gör</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -178,11 +193,11 @@
                 <div class="product-info">
                     <h2 class="product-name">Tom ve Jerry Kupa</h2>
                     <p class="product-price">₺200.00</p>
-                    <a href="https://neyex.co/tom-and-jerry--mug" class="product-link" target="_parent">Ürünü Gör</a>
+                    <button onclick="window.top.location.href='https://neyex.co/tom-and-jerry--mug'" class="product-link">Ürünü Gör</button>
                 </div>
             </div>
-            <button class="nav-button prev">&lt;</button>
-            <button class="nav-button next">&gt;</button>
+            <button class="nav-button prev">&#10094;</button>
+            <button class="nav-button next">&#10095;</button>
         </div>
         <div class="footer">
             <p class="campaign-text">Ağustos ayı boyunca ücretsiz kargo kampanyamızdan yararlanabilirsiniz!</p>
@@ -218,8 +233,15 @@
             updateCarousel();
         }
 
-        prevBtn.addEventListener('click', () => moveCarousel('prev'));
-        nextBtn.addEventListener('click', () => moveCarousel('next'));
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveCarousel('prev');
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveCarousel('next');
+        });
 
         let startX, moveX;
         carousel.addEventListener('touchstart', (e) => {
