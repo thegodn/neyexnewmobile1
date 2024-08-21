@@ -10,9 +10,8 @@
             padding: 0;
             height: 100%;
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5;
             color: #333;
-            overflow: hidden;
         }
         .container {
             display: flex;
@@ -21,34 +20,34 @@
         }
         .header {
             text-align: center;
-            padding: 10px;
-            background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 10;
+            padding: 15px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .header h1 {
             margin: 0;
-            font-size: 1.5em;
-            color: #333;
+            font-size: 1.8em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         .carousel {
-            position: relative;
             flex: 1;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
         .carousel-item {
             position: absolute;
-            width: 80%;
-            max-width: 300px;
+            width: 85%;
+            max-width: 350px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
             opacity: 0;
             transform: scale(0.8);
         }
@@ -61,42 +60,45 @@
             opacity: 0.5;
             z-index: 1;
         }
-        .carousel-item.prev { transform: translateX(-60%) scale(0.8); }
-        .carousel-item.next { transform: translateX(60%) scale(0.8); }
+        .carousel-item.prev { transform: translateX(-70%) scale(0.9); }
+        .carousel-item.next { transform: translateX(70%) scale(0.9); }
         .product-image {
             width: 100%;
             height: auto;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
         .product-info {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
         }
         .product-name {
-            font-size: 1.2em;
-            margin: 5px 0;
+            font-size: 1.4em;
+            margin: 0 0 10px;
+            color: #2c3e50;
             font-weight: bold;
         }
         .product-price {
-            font-size: 1.3em;
-            color: #e44d26;
-            margin: 5px 0 15px;
+            font-size: 1.6em;
+            color: #e74c3c;
+            margin: 10px 0 20px;
             font-weight: bold;
         }
         .product-link {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
             text-transform: uppercase;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .product-link:hover {
-            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         .nav-button {
             position: absolute;
@@ -105,24 +107,31 @@
             background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            padding: 10px 15px;
-            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
             z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.7);
         }
         .nav-button.prev { left: 10px; }
         .nav-button.next { right: 10px; }
         .footer {
             text-align: center;
-            padding: 10px;
-            background: linear-gradient(45deg, #f3f3f3, #e6e6e6);
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-            z-index: 10;
+            padding: 15px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
         .campaign-text {
-            font-size: 0.9em;
+            font-size: 1em;
             font-weight: bold;
-            color: #e44d26;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -168,7 +177,7 @@
                 <img src="https://cdn.myikas.com/images/85ac5111-fce1-44f1-b031-a3879e33e55b/4193ed2f-d194-4676-9d51-3f680546c6f7/image_1080.webp" alt="Tom ve Jerry Kupa" class="product-image">
                 <div class="product-info">
                     <h2 class="product-name">Tom ve Jerry Kupa</h2>
-                    <p class="product-price">₺200</p>
+                    <p class="product-price">₺200.00</p>
                     <a href="https://neyex.co/tom-and-jerry--mug" class="product-link" target="_parent">Ürünü Gör</a>
                 </div>
             </div>
