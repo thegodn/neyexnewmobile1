@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressive 3D Product Carousel</title>
+    <title>Enhanced 3D Product Carousel</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 850px;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background-color: #2c2c2c; /* Anthracite color */
             color: white;
             overflow: hidden;
         }
@@ -18,20 +18,20 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
         .carousel {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 650px;
             perspective: 1000px;
             transform-style: preserve-3d;
         }
         .carousel-item {
             position: absolute;
             width: 300px;
-            height: 400px;
+            height: 500px;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -39,20 +39,32 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3),
+                        0 5px 15px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 20px;
             box-sizing: border-box;
             opacity: 0;
+            transform-style: preserve-3d;
+        }
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            border-radius: 20px;
+            pointer-events: none;
         }
         .carousel-item.active {
             opacity: 1;
             z-index: 1;
+            transform: translate(-50%, -50%) rotateY(0deg);
         }
         .carousel-item.prev, .carousel-item.next {
             opacity: 0.7;
@@ -66,9 +78,10 @@
         }
         .product-image {
             width: 100%;
-            height: 200px;
+            height: 350px;
             object-fit: cover;
             border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .product-info {
             text-align: center;
@@ -98,6 +111,7 @@
             cursor: pointer;
             border-radius: 30px;
             transition: all 0.3s ease;
+            z-index: 2;
         }
         .nav-button:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -111,6 +125,20 @@
         .header, .footer {
             text-align: center;
             padding: 20px;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .campaign-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -148,7 +176,7 @@
             <button class="nav-button next">&gt;</button>
         </div>
         <div class="footer">
-            <p>Ağustos ayı boyunca ücretsiz kargo fırsatımızdan yararlanabilirsiniz.</p>
+            <p class="campaign-text">🌟 Ağustos ayı boyunca ücretsiz kargo fırsatımızdan yararlanabilirsiniz. 🌟</p>
         </div>
     </div>
     <script>
@@ -158,6 +186,8 @@
         const nextBtn = carousel.querySelector('.nav-button.next');
 
         let currentIndex = 0;
+        let startX, moveX;
+        let isMoving = false;
 
         function updateCarousel() {
             items.forEach((item, index) => {
@@ -172,14 +202,39 @@
             });
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
+        function moveCarousel(direction) {
+            if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+            } else {
+                currentIndex = (currentIndex + 1) % items.length;
+            }
             updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', () => moveCarousel('prev'));
+        nextBtn.addEventListener('click', () => moveCarousel('next'));
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isMoving = true;
         });
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % items.length;
-            updateCarousel();
+        carousel.addEventListener('touchmove', (e) => {
+            if (!isMoving) return;
+            moveX = e.touches[0].clientX;
+            const diff = moveX - startX;
+            if (Math.abs(diff) > 50) {
+                isMoving = false;
+                if (diff > 0) {
+                    moveCarousel('prev');
+                } else {
+                    moveCarousel('next');
+                }
+            }
+        });
+
+        carousel.addEventListener('touchend', () => {
+            isMoving = false;
         });
 
         updateCarousel();
